@@ -20,6 +20,11 @@ public class EjemploString {
 		System.out.println(texto1 + ", qué tal?");
 		//campo1 + "|" + campo2 + "|" + campo3 + "|" + campo4
 		
+		//No se puede acceder a la función validarEmail
+		//porque es de tipo package y 
+		//no estamos en el mismo paquete
+		//Utilidades.validarEmail("asdasd");
+		
 	}
 
 }
