@@ -6,25 +6,27 @@ public class PistaAtletismo {
 		
 		String nombre = "Raúl";
 		
-		Persona persona0 = null;
-		//System.out.println(persona0.nombre);
+		Persona persona0 = new Persona("N1","A1","111A",18);
+		System.out.println(persona0.getNombre());
 		
-		Persona persona1 = new Persona();
-		persona1.nombre = "Eva";
-		System.out.println(persona1.apellidos);
-		System.out.println(persona1.edad);
+		Persona persona1 = new Persona("Eva","A2","222B");
+		//persona1.setNombre("Eva");
+		System.out.println(persona1.getApellidos());
+		System.out.println(persona1.getEdad());
+		persona1.correr();
 		
 		Persona persona2 = new Persona();
-		persona2.nombre = "Marta";
+		persona2.setNombre("Marta");
+		persona2.correr();
 		
 		Persona persona3 = new Persona();
-		persona3.nombre = "Luis";
-		
+		persona3.setNombre("Luis");
+		 
 		Persona persona4 = persona3;
-		persona4.nombre = "David";
-		System.out.println(persona3.nombre);//David
-		System.out.println(persona4.nombre);//David
-		
+		persona4.setNombre("David");
+		System.out.println(persona3.getNombre());//David
+		System.out.println(persona4.getNombre());//David
+		persona3.correr();
 	}
 
 }
