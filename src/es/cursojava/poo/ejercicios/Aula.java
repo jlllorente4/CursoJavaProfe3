@@ -4,8 +4,12 @@ public class Aula {
 
 	public static void main(String[] args) {
 		
+		for (String arg : args) {
+			System.out.println(arg);
+		}
+		
 		Alumno alumno1 = new Alumno();
-		alumno1.setNombre("A1");
+		alumno1.setNombre(args[0]);
 		alumno1.setDni("111A");
 		alumno1.setNota(1.5);
 		alumno1.setMayorEdad(true);
@@ -21,7 +25,7 @@ public class Aula {
 		alumno3.verNota();
 		
 		Alumno[] alumnos = {alumno1,alumno2,alumno3};
-		//System.out.println(alumnos[0].getNombre());
+		System.out.println(alumnos[0]);
 		Aula aula1 = new Aula();
 		aula1.pintaDatosAlumnosAprobados(alumnos);
 		
