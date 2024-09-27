@@ -14,23 +14,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import es.cursojava.excepciones.MiExcepcion;
 import es.cursojava.poo.ejercicios.Alumno;
 
 public class GestionFicheros {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		crearArchivo("fichero.txt");
-		//String contenidoFichero = leerArchivo("fichero_datos.txt");
-		//System.out.println(contenidoFichero);
+		//crearArchivo2("fichero.txt");
+		String contenidoFichero=null;
+		try {
+			contenidoFichero = leerArchivo("fichero_datos.txt");
+		} catch (MiExcepcion e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		System.out.println(contenidoFichero);
 	}
 
 	public static void crearArchivo(String nombre) {
 		File archivo = new File(nombre);
+		BufferedWriter buffer2 = null;
 		
-//		BufferedWriter buffer2 = null;
+		
 //		try {
-//			FileWriter fw = new FileWriter(archivo, true);
+//			FileWriter fw = new FileWriter(archivo, false);
 //			buffer2 = new BufferedWriter(fw);
 //
 //			buffer2.append("Hola que tal amigos!\n")
@@ -40,8 +48,9 @@ public class GestionFicheros {
 //		}catch(IOException ioe) {
 //			System.out.println("Error" + ioe.getMessage());
 //		}finally {
+//			
 //			try {
-//				buffer2.close();
+//				buffer2.close();	
 //			} catch (IOException e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
@@ -61,6 +70,7 @@ public class GestionFicheros {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	public static void crearArchivo2(String nombre) {
@@ -71,7 +81,7 @@ public class GestionFicheros {
 
 			buffer.println("Hola que tal amigos!");
 			buffer.println("Todo bien? yo acá escribiendo un archivo...");
-			buffer.printf("Hasta luego %s! %s", "JoseLuis5", "Cadena");
+			buffer.printf("Hasta luego %s! %s", "JoseLuis", "Cadena");
 			// buffer.close();
 			System.out.println("El archivo se ha creado con éxito!");
 		} catch (IOException e) {
@@ -79,7 +89,7 @@ public class GestionFicheros {
 		}
 	}
 
-	public static String leerArchivo(String nombre) {
+	public static String leerArchivo(String nombre) throws MiExcepcion{
 		StringBuilder sb = new StringBuilder();
 		File archivo = new File(nombre);
 //		FileReader fileReader = new FileReader(archivo);
@@ -95,6 +105,15 @@ public class GestionFicheros {
             String linea;
             
             while ( (linea = reader.readLine()) != null){
+            	String[] datos = linea.split(";");
+            	if (datos.length>=2) {
+	            	Alumno alumno = new Alumno(datos[0],datos[1]);
+	            	System.out.println("Alumno: "+alumno.getNombre() + "-" +alumno.getDni());
+            	}else {
+            		//throw new MiExcepcion("Faltan datos en el fichero de alumnos " + linea);
+            		System.err.println("Faltan datos en el fichero de alumnos " + linea);
+            	}
+            	
                 sb.append(linea).append("\n");
             }
         } catch (IOException e) {
@@ -150,7 +169,7 @@ public class GestionFicheros {
 				} else {
 					if (file.getName().endsWith(".txt")) {
 						System.out.println("Se puede leer:" + file.canRead());
-						System.out.println("TAmaño " + file.length());
+						System.out.println("Tamaño " + file.length());
 						System.out.println("Es un fichero");
 					}
 				}

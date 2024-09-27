@@ -40,9 +40,10 @@ public class PruebaExcepciones {
 	
 	
 	public static void metodo1 () throws MiExcepcion{
-		MiExcepcion me = new MiExcepcion("Se ha producido un error gestionado por mi");
-		throw me;
-		
+		if(Math.random()>0.5) {
+			MiExcepcion me = new MiExcepcion("Se ha producido un error gestionado por mi");
+			throw me;
+		}
 	}
 
 }
