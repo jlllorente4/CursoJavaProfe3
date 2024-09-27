@@ -9,11 +9,13 @@ public class PruebaExcepciones {
 		System.out.println("Inicio");
 		int[] numeros = {10,20,30};
 		Alumno alumno1 = null;
+				
+		
 		
 		try {//Controlamos el código que se ejecuta
 			int resultado = 7/0;
-			//alumno1.getNombre();
-			//System.out.println(numeros[3]);
+			alumno1.getNombre();
+			System.out.println(numeros[3]);
 			System.out.println("Continua");
 		}catch (ArrayIndexOutOfBoundsException aiobe) {
 			System.out.println("Se ha producido un error al acceder a una posición que no existe de un array");
@@ -24,8 +26,23 @@ public class PruebaExcepciones {
 		}finally {
 			System.out.println("Siempre se ejecuta");
 		}
+		
+		try {
+			metodo1();
+		} catch (MiExcepcion e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		System.out.println("FIN");
 
+	}
+	
+	
+	public static void metodo1 () throws MiExcepcion{
+		MiExcepcion me = new MiExcepcion("Se ha producido un error gestionado por mi");
+		throw me;
+		
 	}
 
 }
