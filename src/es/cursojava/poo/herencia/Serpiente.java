@@ -26,6 +26,10 @@ public class Serpiente extends Animal {
 		System.out.println("La serpiente "+ getNombre() + " está tragándose la presa");
 	}
 	
-	
+	@Override
+	public void respirar() {
+		System.out.println("La serpiente está respirando");
+		
+	}
 
 }

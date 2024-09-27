@@ -17,4 +17,10 @@ public class Vaca extends Animal{
 		System.out.println("La vaca "+ getNombre() + " está pastando");
 	}
 
+	
+	@Override
+	public void respirar() {
+		System.out.println("La vaca está respirando");
+		
+	}
 }

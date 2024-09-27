@@ -27,6 +27,12 @@ public class Leon extends Animal {
 	public String toString() {
 		return "Leon con colorMelena=" + colorMelena + ", id=" + getId() + ", nombre=" + getNombre();
 	}
+
+	@Override
+	public void respirar() {
+		System.out.println("El león está respirando");
+		
+	}
 	
 	
 }

@@ -47,4 +47,7 @@ public abstract class Animal {
 	public void comer() {
 		System.out.println("El animal "+ nombre + " está comiendo");
 	}
+	
+	public abstract void respirar();
+	
 }

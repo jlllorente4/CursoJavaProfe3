@@ -15,6 +15,13 @@ public class Zoologico {
 		for (Animal animal : animales) {
 			//Polimorfismo
 			animal.comer();
+			
+			if (animal instanceof Vaca) {
+				//Cast o Casting
+				Vaca v = (Vaca)animal;
+				v.mugir();
+			}
+			animal.beber();
 		}
 		
 		Animal leon2 = new Leon(5,"Leon2","",200, "Rojo");
